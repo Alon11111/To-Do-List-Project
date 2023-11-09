@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/login.css" />
+    <script src="static/login.js" defer></script>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="content-container">
+        <div class="header-container">
+          <div class="header-content"><h2>Login</h2></div>
+        </div>
+        <div class="form-container">
+          <form class="form-content" action="/login_verification" method="POST">
+            <div class="field-container">
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                value="{{ email }}"
+                required
+              />
+            </div>
+            <div class="field-container">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                id="passwordInput"
+                required
+              />
+              <img
+                src="static/images/view.png"
+                onClick="togglePassVisibility()"
+                id="visibilityImg"
+              />
+            </div>
+            <div class="restore-container">
+              <a href="/restore" class="restore-btn"> Forgot password? </a>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="msg-container">
+              {% if message %}
+              <span>{{ message }}</span>
+              {% endif %}
+            </div>
+          </form>
+        </div>
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="register-container">
+              <label>Don't have an account yet?</label>
+              <a href="/register">
+                <button class="register-btn">Register</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

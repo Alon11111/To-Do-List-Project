@@ -1,0 +1,312 @@
+* {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #dfecff;
+  color: #333333;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 8vh;
+}
+
+.task {
+  display: flex;
+  border: 1px solid black;
+  background-color: rgb(134, 255, 140);
+  padding: 2.5vh;
+  border-radius: 10px;
+  gap: 2%;
+  margin-bottom: 1%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.task div {
+  background-color: rgb(248, 255, 170);
+  border-radius: 10px;
+  font-size: 150%;
+  padding-right: 1.5vh;
+  padding-left: 1vh;
+}
+
+.task:hover {
+  background-color: rgb(54, 255, 64);
+  border: 1px dashed black;
+  transition: 0.1s;
+}
+
+.status {
+  width: 10vw;
+  background-color: white;
+  border-radius: 4px;
+  font-size: large;
+  text-align: center;
+}
+
+.description {
+  width: 40vw;
+  background-color: white;
+  border-radius: 4px;
+  font-size: large;
+  text-align: center;
+}
+
+.date {
+  width: 10vw;
+  background-color: white;
+  border-radius: 4px;
+  font-size: large;
+  text-align: center;
+  cursor: text;
+}
+
+.done {
+  width: 5vw;
+  font-size: large;
+  text-align: center;
+}
+
+.done a {
+  background-color: #333333;
+  color: white;
+  border-radius: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.done a:hover {
+  background-color: #333333;
+  border: 3px solid #333333;
+  font-size: 101%;
+  color: white;
+  transition: 0.1s;
+}
+
+.unDone {
+  width: 5vw;
+  font-size: large;
+  text-align: center;
+}
+
+.unDone a {
+  background-color: rgb(185, 185, 185);
+  border-radius: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.unDone a:hover {
+  background-color: rgb(112, 112, 112);
+  border: 3px solid rgb(112, 112, 112);
+  font-size: 101%;
+  color: white;
+  transition: 0.1s;
+}
+
+.update {
+  width: 5vw;
+  font-size: large;
+  text-align: center;
+}
+
+.update a {
+  background-color: #89b8ff;
+  border-radius: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.update a:hover {
+  background-color: #303eff;
+  border: 3px solid #303eff;
+  font-size: 101%;
+  color: white;
+  transition: 0.1s;
+}
+
+.delete {
+  width: 5vw;
+  font-size: large;
+  text-align: center;
+}
+
+.delete a {
+  background-color: rgb(255, 105, 105);
+  border-radius: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.delete a:hover {
+  background-color: rgb(255, 64, 64);
+  border: 3px solid rgb(255, 64, 64);
+  font-size: 101%;
+  color: white;
+  transition: 0.1s;
+}
+
+/* .add {
+  justify-content: center;
+  align-items: center;
+} */
+
+.addContainer {
+  display: flex;
+  gap: 2%;
+  margin-bottom: 1%;
+  text-align: center;
+  height: 6vh;
+  /* align-content: center; */
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.addBtn {
+  justify-self: center;
+  width: 20vw;
+  background-color: #333333;
+  border: 1px solid #333333;
+  color: white;
+  border-radius: 4px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  border: 1px solid white;
+  font-size: 130%;
+  transition: 0.1s;
+}
+
+.title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 3vh;
+}
+
+title div {
+  text-align: center;
+  width: 100vh;
+}
+
+.Title {
+  background-color: rgb(248, 255, 170);
+  border: 2px solid black;
+  border-style: dotted;
+  border-radius: 4px;
+  width: 40vh;
+  text-align: center;
+}
+
+.Nav {
+  display: flex;
+  background-color: #89b8ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  gap: 2%;
+  margin-bottom: 1%;
+  text-align: center;
+  height: 6vh;
+  align-content: center;
+  justify-content: center;
+}
+
+.tasksNav {
+  width: 5vw;
+  border: 1px solid #333333;
+  padding: 1.5vh;
+  border-radius: 10px;
+  background-color: #333333;
+  color: white;
+  font-size: large;
+  align-self: center;
+}
+
+.tasksNav:hover {
+  border: 1px solid white;
+  font-size: 130%;
+  transition: 0.1s;
+}
+
+.addNav {
+  width: 5vw;
+  border: 1px solid #333333;
+  padding: 1.5vh;
+  border-radius: 10px;
+  background-color: #333333;
+  color: white;
+  font-size: large;
+  align-self: center;
+}
+
+.addNav:hover {
+  border: 1px solid white;
+  font-size: 130%;
+  transition: 0.1s;
+}
+
+.searchContainer {
+  display: flex;
+  /* border: 1px solid red; */
+  /* background-color: #89b8ff; */
+  /* padding: 4vh; */
+  gap: 2%;
+  /* margin-bottom: 1%; */
+  text-align: center;
+  height: 6vh;
+  /* align-content: center; */
+  justify-content: center;
+}
+
+.searchInput {
+  /* width: 40vw; */
+  background-color: white;
+  /* border-radius: 4px; */
+  font-size: large;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #333333;
+  background-color: white;
+}
+
+.searchBtn {
+  width: 6vw;
+  border-radius: 10px;
+  border: 1px solid #333333;
+  font-size: large;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  border: 1px solid white;
+  font-size: 130%;
+  transition: 0.1s;
+}
+
+::placeholder {
+  color: #333333;
+  opacity: 1;
+}
+
+#searchBtnInput {
+  background-color: #333333;
+  color: white;
+}
+
+.button.active {
+  background-color: #007bff; /* Change to your desired background color */
+  color: #fff; /* Change to your desired text color */
+}
+
+/* .In-Progress {
+  background-color: yellow;
+} */

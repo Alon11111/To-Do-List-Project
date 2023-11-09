@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/register.css" />
+    <script src="static/register.js" defer></script>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="content-container">
+        <div class="header-container">
+          <div class="header-content"><h2>Register</h2></div>
+        </div>
+        <div class="form-container">
+          <form
+            class="form-content"
+            action="/register_verification"
+            method="POST"
+          >
+            <div class="name-field-container">
+              <div class="field-container">
+                <input
+                  type="text"
+                  name="first_name"
+                  placeholder="First name"
+                  value="{{ first_name }}"
+                  required
+                />
+              </div>
+              <div class="field-container">
+                <input
+                  type="text"
+                  name="last_name"
+                  value="{{ last_name }}"
+                  placeholder="Last name"
+                  required
+                />
+              </div>
+            </div>
+            <div class="field-container">
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                value="{{ email }}"
+                required
+              />
+            </div>
+            <div class="field-container">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                id="passwordInput"
+                required
+              />
+              <img
+                src="static/images/view.png"
+                onClick="togglePassVisibility()"
+                id="visibilityImg"
+              />
+            </div>
+            <button type="submit" class="register-btn">Register</button>
+            <div class="msg-container">
+              {% if message %}
+              <span class="spanMsg">{{ message }}</span>
+              {% endif %}
+            </div>
+          </form>
+          <div class="footer-container">
+            <div class="footer-content">
+              <div class="login-container">
+                <label>Already have an account?</label>
+                <a href="/login">
+                  <button class="login-btn">Login</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+* {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.page-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container {
+  border: 0.1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+  height: 70%;
+  width: 30%;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18vh;
+}
+
+.header-content {
+  text-align: center;
+  font-size: x-large;
+  width: 80%;
+}
+
+.form-container {
+  height: 60%;
+}
+
+.form-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.field-container {
+  display: flex;
+  height: 6vh;
+  width: 80%;
+  margin: 10px;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+}
+
+.field-container input {
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: larger;
+}
+
+.field-container input::placeholder {
+  opacity: 50%;
+}
+
+.field-container img {
+  padding-right: 10px;
+  width: auto;
+  align-self: center;
+  height: 75%;
+  cursor: pointer;
+}
+
+.restore-container {
+  width: 80%;
+}
+
+.restore-btn {
+  background-color: white;
+  border: none;
+  text-decoration: underline;
+  font-size: medium;
+  /* height: 1vh; */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: rgb(131, 208, 131);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 80%;
+  height: 55px;
+  margin-top: 15px;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  font-size: 250%;
+  transition: 0.1s;
+}
+
+.msg-container {
+  height: 5vh;
+  margin-top: 10px;
+  width: 80%;
+  text-align: left;
+  font-weight: bold;
+  font-size: small;
+  color: rgb(255, 105, 105);
+}
+
+/* .footer-container  */
+
+.footer-content {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.register-container {
+  display: flex;
+  font-size: larger;
+  height: 5vh;
+  width: 80%;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-btn {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: medium;
+  height: 5vh;
+  border-radius: 4px;
+  cursor: pointer;
+}

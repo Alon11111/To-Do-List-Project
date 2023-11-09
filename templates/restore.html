@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset</title>
+    <link rel="stylesheet" href="/static/restore.css" />
+    <script src="static/restore.js" defer></script>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="content-container">
+        <div class="header-container">
+          <div class="header-content"><h2>Reset Password</h2></div>
+        </div>
+        <div class="form-container">
+          <form
+            class="form-content"
+            action="/restore_verification"
+            method="POST"
+          >
+            <div class="name-field-container">
+              <div class="field-container">
+                <input
+                  type="text"
+                  name="first_name"
+                  placeholder="First name"
+                  value="{{ first_name }}"
+                  required
+                />
+              </div>
+              <div class="field-container">
+                <input
+                  type="text"
+                  name="last_name"
+                  value="{{ last_name }}"
+                  placeholder="Last name"
+                  required
+                />
+              </div>
+            </div>
+            <div class="field-container">
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                value="{{ email }}"
+                required
+              />
+            </div>
+            <div class="field-container">
+              <input
+                type="password"
+                name="password"
+                placeholder="New Password"
+                id="passwordInput"
+                required
+              />
+              <img
+                src="static/images/view.png"
+                onClick="togglePassVisibility()"
+                id="visibilityImg"
+              />
+            </div>
+            <button type="submit" class="restore-btn">Reset</button>
+            <div class="msg-container">
+              {% if message %}
+              <span class="spanMsg">{{ message }}</span>
+              {% endif %}
+            </div>
+          </form>
+          <div class="footer-container">
+            <div class="footer-content">
+              <div class="login-container">
+                <!-- <label>Already have an account?</label> -->
+                <a href="/login"> Back to Login </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -11,7 +11,7 @@ def read_tasks(user_id="", task=[]):
     update_expired_status(user_id, today)
     sorted_tasks = sorted(task, key=lambda i: (
         i["status"] != "In-Progress",
-        i["status"] != "Done",
+        i["status"] != "Finished",
         i["status"] != "Expired",
         i["date"]
 ))
@@ -21,7 +21,7 @@ def update_expired_status(user_id, today):
     sql = f"""
     UPDATE tasks 
     SET status="Expired"
-    WHERE date < "{today}" AND status != 'Done' AND user_id="{user_id}";
+    WHERE date < "{today}" AND status != 'Finished' AND user_id="{user_id}";
     """
     query_commit(sql)
 

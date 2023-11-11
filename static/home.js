@@ -47,11 +47,22 @@ const Home = () => {
         <input
           ref={editDescriptionRef}
           type="text"
+          maxlength="75"
           defaultValue={row.description}
+          className="edit-description-container"
         />
-        <input ref={editDateRef} type="date" defaultValue={row.date} />
-        <div className="update">
-          <a onClick={() => submitUpdate(row)}>Save</a>
+        <input
+          ref={editDateRef}
+          type="date"
+          defaultValue={row.date}
+          className="edit-date-container"
+        />
+        <div className="save-update-btn">
+          <img
+            src="static/images/save.png"
+            className="save-img"
+            onClick={() => submitUpdate(row)}
+          />
         </div>
       </>
     );
@@ -60,10 +71,14 @@ const Home = () => {
   const displayDefaultTaskRow = (row) => {
     return (
       <>
-        <div className="description">{row.description}</div>
-        <div className="date">{row.date}</div>
-        <div className="update">
-          <a onClick={() => setEditRowId(row.task_id)}>Update</a>
+        <div className="task-description">{row.description}</div>
+        <div className="task-date">{row.date}</div>
+        <div className="task-update-btn">
+          <img
+            src="static/images/edit.png"
+            className="edit-img"
+            onClick={() => setEditRowId(row.task_id)}
+          />
         </div>
       </>
     );
@@ -84,7 +99,7 @@ const Home = () => {
   const doneBtnClickHandler = async (row) => {
     const taskStatus = {
       task_id: row.task_id,
-      status: "Done",
+      status: "Finished",
       date: row.date,
     };
     await axios.post("/update_status", taskStatus);
@@ -128,12 +143,10 @@ const Home = () => {
     if (!data) return <></>;
     return (
       <>
-        <header>
-          <div className="Nav">
-            <div className="name">
-              <a>{name}'s To Do List</a>
-            </div>
-            <div className="task-view-buttons">
+        <div className="header-container">
+          <div className="header-content">
+            <h2 className="first-name">{name}'s tasks:</h2>
+            <div className="nav-container">
               <button
                 className={
                   currentTaskView === "All" ? "button active" : "button"
@@ -152,11 +165,11 @@ const Home = () => {
               </button>
               <button
                 className={
-                  currentTaskView === "Done" ? "button active" : "button"
+                  currentTaskView === "Finished" ? "button active" : "button"
                 }
-                onClick={() => handleCurrentTaskViewChange("Done")}
+                onClick={() => handleCurrentTaskViewChange("Finished")}
               >
-                Done
+                Finished
               </button>
               <button
                 className={
@@ -167,56 +180,57 @@ const Home = () => {
                 Expired
               </button>
             </div>
-            <form className="searchContainer" onSubmit={handleSearchSubmit}>
-              <input
-                ref={searchQueryRef}
-                type="text"
-                name="description"
-                placeholder="Search task here.."
-                className="searchInput"
-                required
-              />
-              <input
-                type="submit"
-                value="Search"
-                className="searchBtn"
-                id="searchBtnInput"
-              />
-            </form>
-            <div className="logOut">
+            <div className="search-container">
+              <form className="search-content" onSubmit={handleSearchSubmit}>
+                <input
+                  ref={searchQueryRef}
+                  type="text"
+                  name="description"
+                  placeholder="Search.."
+                  className="search-field"
+                  required
+                />
+                <img src="static/images/search.png" className="search-img" />
+              </form>
+            </div>
+            <div className="logout-container">
               <button onClick={() => clearSessionBtn()}>Log-Out</button>
             </div>
           </div>
-        </header>
-
-        {/* <div className="title" id="add">
-          <h1 className="Title">Add Task</h1>
-        </div> */}
-        <div className="add">
-          <form className="addContainer" onSubmit={addHandler}>
-            <input
-              type="text"
-              name="description"
-              placeholder="Add new task's description here.."
-              className="description"
-              ref={addDescriptionRef}
-              required
-            />
-            <input
-              type="date"
-              name="date"
-              placeholder="date"
-              className="date"
-              ref={addDateRef}
-              required
-            />
-            <input type="submit" value="Add" className="addBtn" />
-          </form>
+          <div className="add-container">
+            <form className="add-content" onSubmit={addHandler}>
+              <div className="add-title-container">
+                <h2 className="add-title">Add New Task</h2>
+              </div>
+              <textarea
+                name="description"
+                maxlength="75"
+                placeholder="Add new task's description here.."
+                className="add-description"
+                ref={addDescriptionRef}
+                required
+              />
+              <input
+                type="date"
+                name="date"
+                placeholder="date"
+                className="add-date"
+                ref={addDateRef}
+                required
+              />
+              <input type="submit" value="Add" className="add-btn" />
+            </form>
+          </div>
         </div>
         {/* <div className="title" id="tasks">
           <h1 className="Title">{name}'s Tasks</h1>
         </div> */}
-        <div className="tasks">
+        <div className="tasks-container">
+          <div className="titles">
+            <h2 className="status-title">Status</h2>
+            <h2 className="description-title">Description</h2>
+            <h2 className="date-title">Date</h2>
+          </div>
           {data
             .filter(
               searchQuery === null
@@ -229,27 +243,50 @@ const Home = () => {
             )
             .map((row, key) => {
               return (
-                // @@@@@@@@@@@@@@
-                <div className={`task ${row.status}`} key={key}>
+                <div className="task-container" key={key}>
                   {row.status === "In-Progress" ? (
-                    <div className="done">
-                      <a onClick={() => doneBtnClickHandler(row)}>Done</a>
+                    <div className="done-btn-container">
+                      <img
+                        src="static/images/done.png"
+                        className="done-img"
+                        onClick={() => doneBtnClickHandler(row)}
+                      />
                     </div>
                   ) : (
-                    <div className={row.status === "Done" ? "unDone" : "retry"}>
-                      <a onClick={() => unDoneBtnClickHandler(row)}>
-                        {row.status === "Done" ? "UnDone" : "Retry"}
-                      </a>
+                    <div
+                      className={
+                        row.status === "Finished"
+                          ? "undone-btn-container"
+                          : "retry-btn-container"
+                      }
+                    >
+                      <img
+                        src={
+                          row.status === "Finished"
+                            ? "static/images/undone.png"
+                            : "static/images/retry.png"
+                        }
+                        className={
+                          row.status === "Finished" ? "undone-img" : "retry-img"
+                        }
+                        onClick={() => unDoneBtnClickHandler(row)}
+                      />
                     </div>
                   )}
-                  <div className="status">{row.status}</div>
+                  <div className={`status-container ${row.status}`}>
+                    {row.status}
+                  </div>
 
                   {row.task_id == editRowId
                     ? editBtnClickHandler(row)
                     : displayDefaultTaskRow(row)}
 
-                  <div className="delete">
-                    <a onClick={() => deleteBtnClickHandler(row)}>Delete</a>
+                  <div className="delete-btn-container">
+                    <img
+                      src="static/images/delete.png"
+                      className="delete-img"
+                      onClick={() => deleteBtnClickHandler(row)}
+                    />
                   </div>
                 </div>
               );

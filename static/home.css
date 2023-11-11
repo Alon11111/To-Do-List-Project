@@ -1,7 +1,5 @@
 * {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background-color: #dfecff;
-  color: #333333;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 html {
@@ -9,304 +7,432 @@ html {
 }
 
 body {
-  padding-top: 8vh;
+  margin: 0;
+  background-color: rgb(246, 246, 246);
 }
 
-.task {
+.header-container {
+  padding-top: 10vh;
+}
+
+.header-content {
   display: flex;
-  border: 1px solid black;
-  background-color: rgb(134, 255, 140);
-  padding: 2.5vh;
-  border-radius: 10px;
-  gap: 2%;
-  margin-bottom: 1%;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
-
-.task div {
-  background-color: rgb(248, 255, 170);
-  border-radius: 10px;
-  font-size: 150%;
-  padding-right: 1.5vh;
-  padding-left: 1vh;
-}
-
-.task:hover {
-  background-color: rgb(54, 255, 64);
-  border: 1px dashed black;
-  transition: 0.1s;
-}
-
-.status {
-  width: 10vw;
-  background-color: white;
-  border-radius: 4px;
-  font-size: large;
-  text-align: center;
-}
-
-.description {
-  width: 40vw;
-  background-color: white;
-  border-radius: 4px;
-  font-size: large;
-  text-align: center;
-}
-
-.date {
-  width: 10vw;
-  background-color: white;
-  border-radius: 4px;
-  font-size: large;
-  text-align: center;
-  cursor: text;
-}
-
-.done {
-  width: 5vw;
-  font-size: large;
-  text-align: center;
-}
-
-.done a {
-  background-color: #333333;
-  color: white;
-  border-radius: 10px;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.done a:hover {
-  background-color: #333333;
-  border: 3px solid #333333;
-  font-size: 101%;
-  color: white;
-  transition: 0.1s;
-}
-
-.unDone {
-  width: 5vw;
-  font-size: large;
-  text-align: center;
-}
-
-.unDone a {
-  background-color: rgb(185, 185, 185);
-  border-radius: 10px;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.unDone a:hover {
-  background-color: rgb(112, 112, 112);
-  border: 3px solid rgb(112, 112, 112);
-  font-size: 101%;
-  color: white;
-  transition: 0.1s;
-}
-
-.update {
-  width: 5vw;
-  font-size: large;
-  text-align: center;
-}
-
-.update a {
-  background-color: #89b8ff;
-  border-radius: 10px;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.update a:hover {
-  background-color: #303eff;
-  border: 3px solid #303eff;
-  font-size: 101%;
-  color: white;
-  transition: 0.1s;
-}
-
-.delete {
-  width: 5vw;
-  font-size: large;
-  text-align: center;
-}
-
-.delete a {
-  background-color: rgb(255, 105, 105);
-  border-radius: 10px;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.delete a:hover {
-  background-color: rgb(255, 64, 64);
-  border: 3px solid rgb(255, 64, 64);
-  font-size: 101%;
-  color: white;
-  transition: 0.1s;
-}
-
-/* .add {
-  justify-content: center;
-  align-items: center;
-} */
-
-.addContainer {
-  display: flex;
-  gap: 2%;
-  margin-bottom: 1%;
-  text-align: center;
-  height: 6vh;
-  /* align-content: center; */
-  /* align-items: center; */
-  justify-content: center;
-}
-
-.addBtn {
-  justify-self: center;
-  width: 20vw;
-  background-color: #333333;
-  border: 1px solid #333333;
-  color: white;
-  border-radius: 4px;
-  font-size: large;
-  cursor: pointer;
-}
-
-.addBtn:hover {
-  border: 1px solid white;
-  font-size: 130%;
-  transition: 0.1s;
-}
-
-.title {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  padding-bottom: 3vh;
-}
-
-title div {
-  text-align: center;
-  width: 100vh;
-}
-
-.Title {
-  background-color: rgb(248, 255, 170);
-  border: 2px solid black;
-  border-style: dotted;
-  border-radius: 4px;
-  width: 40vh;
-  text-align: center;
-}
-
-.Nav {
-  display: flex;
-  background-color: #89b8ff;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   padding-top: 2vh;
-  padding-bottom: 2vh;
-  gap: 2%;
-  margin-bottom: 1%;
+  padding-bottom: 2.5vh;
   text-align: center;
-  height: 6vh;
-  align-content: center;
+  align-items: center;
   justify-content: center;
+  background-color: rgb(246, 246, 246);
+  gap: 3%;
 }
 
-.tasksNav {
-  width: 5vw;
-  border: 1px solid #333333;
-  padding: 1.5vh;
-  border-radius: 10px;
-  background-color: #333333;
-  color: white;
-  font-size: large;
-  align-self: center;
+.first-name {
+  margin: 0;
+  margin-left: 2.4vw;
+  width: 12.5vw;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: underline 1px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 
-.tasksNav:hover {
-  border: 1px solid white;
-  font-size: 130%;
-  transition: 0.1s;
-}
-
-.addNav {
-  width: 5vw;
-  border: 1px solid #333333;
-  padding: 1.5vh;
-  border-radius: 10px;
-  background-color: #333333;
-  color: white;
-  font-size: large;
-  align-self: center;
-}
-
-.addNav:hover {
-  border: 1px solid white;
-  font-size: 130%;
-  transition: 0.1s;
-}
-
-.searchContainer {
+.nav-container {
+  margin-left: 0;
+  margin-right: 1.6vw;
   display: flex;
-  /* border: 1px solid red; */
-  /* background-color: #89b8ff; */
-  /* padding: 4vh; */
-  gap: 2%;
-  /* margin-bottom: 1%; */
-  text-align: center;
   height: 6vh;
-  /* align-content: center; */
+  gap: 2px;
+  align-items: center;
   justify-content: center;
 }
 
-.searchInput {
-  /* width: 40vw; */
+.nav-container button {
   background-color: white;
-  /* border-radius: 4px; */
-  font-size: large;
-  text-align: center;
-  border-radius: 10px;
-  border: 1px solid #333333;
-  background-color: white;
-}
-
-.searchBtn {
-  width: 6vw;
-  border-radius: 10px;
-  border: 1px solid #333333;
-  font-size: large;
+  border: 1px solid rgb(200, 200, 200);
+  font-weight: bold;
+  font-size: medium;
+  height: 6vh;
+  width: 8vw;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.searchBtn:hover {
-  border: 1px solid white;
+.nav-container button:hover {
+  font-size: large;
+  transition: 0.1s;
+}
+
+.button.active {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-size: large;
+}
+
+.search-container {
+  display: flex;
+  height: 6vh;
+  width: 30vw;
+  background-color: white;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+  margin-right: 6vw;
+  margin-left: 2vw;
+}
+
+.search-container input::placeholder {
+  opacity: 50%;
+}
+
+.search-content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-field {
+  padding-left: 15px;
+  border: none;
+  outline: none;
+  height: fit-content;
+  width: 100%;
+  font-size: larger;
+}
+
+.search-img {
+  padding-right: 10px;
+  width: auto;
+  height: 75%;
+  cursor: pointer;
+}
+
+.logout-container {
+  display: flex;
+  height: 6vh;
+  margin-right: 2.5vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-container button {
+  background-color: rgb(255, 105, 105);
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  height: 6vh;
+  width: 8vw;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-container button:hover {
   font-size: 130%;
   transition: 0.1s;
 }
 
-::placeholder {
-  color: #333333;
-  opacity: 1;
+.add-container {
+  display: flex;
+  position: fixed;
+  left: 0;
+  width: 12vw;
+  height: 100vh;
+  margin-left: 28px;
+  margin-top: 35px;
+  text-align: center;
+  justify-content: center;
+  gap: 6%;
 }
 
-#searchBtnInput {
-  background-color: #333333;
+.add-content {
+  display: flex;
+  flex-direction: column;
+  height: 55vh;
+  width: 12vw;
+  border-radius: 4px;
+  border: 1px solid rgb(200, 200, 200);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  background-color: white;
+}
+
+.add-title {
+  margin: 0;
+}
+
+.add-description {
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid rgb(200, 200, 200);
+  outline: none;
+  height: 27vh;
+  width: 10vw;
+  font-size: larger;
+  resize: none;
+  border-radius: 4px;
+}
+
+.add-date {
+  border: 1px solid rgb(200, 200, 200);
+  outline: none;
+  height: 6vh;
+  width: 12vw;
+  font-size: larger;
+  border-radius: 4px;
+}
+
+.add-description::placeholder,
+.add-date::placeholder {
+  opacity: 50%;
+}
+
+.add-btn {
+  background-color: rgb(131, 208, 131);
   color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  height: 6vh;
+  width: 12vw;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.button.active {
-  background-color: #007bff; /* Change to your desired background color */
-  color: #fff; /* Change to your desired text color */
+.add-btn:hover {
+  font-size: 140%;
+  transition: 0.1s;
 }
 
-/* .In-Progress {
-  background-color: yellow;
-} */
+.tasks-container {
+  margin-left: 16vw;
+  margin-top: 3.5vh;
+  width: 80vw;
+}
+
+.titles {
+  display: flex;
+  flex-direction: row;
+  height: 5vh;
+  width: 100%;
+  text-decoration: underline 1px;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  padding-right: 1.5vh;
+  padding-left: 1.5vh;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.status-title {
+  width: 22vw;
+}
+
+.description-title {
+  width: 31.5vw;
+}
+
+.date-title {
+  width: 22vw;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+  width: 100%;
+  margin-top: 3.5vh;
+  margin-bottom: 3.5vh;
+  padding-right: 1.5vh;
+  padding-left: 1.5vh;
+  align-items: center;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+  background-color: white;
+}
+
+.done-btn-container,
+.undone-btn-container,
+.retry-btn-container,
+.status-container,
+.task-description,
+.task-date,
+.task-update-btn,
+.delete-btn-container {
+  display: flex;
+  width: 6vw;
+  height: 100%;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.done-btn-container {
+  width: 4vw;
+  align-items: center;
+  background-color: rgb(131, 208, 131);
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  height: 7vh;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.undone-btn-container {
+  width: 4vw;
+  align-items: center;
+  background-color: rgb(200, 200, 200);
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  height: 7vh;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.retry-btn-container {
+  width: 4vw;
+  align-items: center;
+  background-color: rgb(200, 200, 200);
+  /* background-color: rgb(234, 234, 107); */
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  height: 7vh;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.done-img,
+.undone-img,
+.retry-img {
+  height: 90%;
+  width: auto;
+}
+
+.done-img:hover,
+.undone-img:hover,
+.retry-img:hover {
+  height: 100%;
+  transition: 0.1s;
+}
+
+.status-container {
+  width: 13vw;
+  text-decoration: underline 1px;
+}
+
+.In-Progress {
+  color: rgb(254, 183, 50);
+}
+
+.Finished {
+  color: rgb(131, 208, 131);
+}
+
+.Expired {
+  color: rgb(255, 105, 105);
+}
+
+.task-description {
+  width: 45vw;
+}
+
+.task-date {
+  width: 13vw;
+  text-decoration: underline 1px;
+}
+
+.task-update-btn {
+  width: 4vw;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  height: 7vh;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-description-container {
+  width: 45vw;
+  padding-left: 10px;
+  margin-left: 1vw;
+  height: 5.5vh;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+  outline: none;
+  font-size: larger;
+}
+
+.edit-date-container {
+  width: 10vw;
+  height: 6vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 4px;
+  outline: none;
+  font-size: larger;
+}
+
+.save-update-btn {
+  display: flex;
+  width: 4vw;
+  margin-right: 0.5vw;
+  margin-left: 1vw;
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: large;
+  height: 7vh;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn-container {
+  width: 4vw;
+  background-color: rgb(255, 105, 105);
+  color: white;
+  border: none;
+  height: 7vh;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-img,
+.edit-img,
+.delete-img {
+  height: 90%;
+  width: auto;
+}
+
+.save-img:hover,
+.edit-img:hover,
+.delete-img:hover {
+  height: 100%;
+  transition: 0.1s;
+}

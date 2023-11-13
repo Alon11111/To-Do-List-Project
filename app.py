@@ -13,10 +13,16 @@ app.secret_key="FireRat"
 def home_page():
     if session.get("user_id", "") == "":
         return redirect("/login")
+    
     return render_template("home.html")
+
+# Login routes
 
 @app.route('/log_out')
 def clear_session():
+    if session.get("user_id", "") == "":
+        return redirect("/login")
+    
     session.clear()
     return "Log Out Succeeded"
 
@@ -24,10 +30,14 @@ def clear_session():
 def login_page():
     if session.get("user_id", "") != "":
         return redirect("/")
+    
     return render_template("login.html")
 
 @app.route('/login_verification', methods=['POST'])
 def login_ver():
+    if session.get("user_id", "") != "":
+        return redirect("/")
+    
     email = request.form["email"]
     password = request.form["password"]
     login_verification_msg = login_verification(email=email, password=password)
@@ -40,14 +50,20 @@ def login_ver():
     message = login_verification_msg[1]
     return render_template("login.html", message=message, email=email)
 
+# Restore password routes
+
 @app.route('/restore')
 def restore_page():
     if session.get("user_id", "") != "":
         return redirect("/")
+    
     return render_template("restore.html")
 
 @app.route('/restore_verification', methods=['POST'])
 def restore_ver():
+    if session.get("user_id", "") != "":
+        return redirect("/")
+    
     email = request.form["email"]
     password = request.form["password"]
     first_name = request.form["first_name"]
@@ -63,14 +79,20 @@ def restore_ver():
                            first_name=first_name,  last_name=last_name,
                            email=email)
 
+# Register routes
+
 @app.route('/register')
 def register_page():
     if session.get("user_id", "") != "":
         return redirect("/")
+    
     return render_template("register.html")
 
 @app.route('/register_verification', methods=['POST'])
 def register_ver():
+    if session.get("user_id", "") != "":
+        return redirect("/")
+    
     email = request.form["email"]
     password = request.form["password"]
     first_name = request.form["first_name"]
@@ -86,20 +108,31 @@ def register_ver():
                            first_name=first_name,  last_name=last_name,
                            email=email)
 
+# Home tasks api routes
+
 @app.route('/read_name')
 def read_first_name():
+    if session.get("user_id", "") == "":
+        return redirect("/login")
+    
     user_id = session['user_id'][0][0]
     name = get_first_name(user_id)
     return name
 
 @app.route('/read_tasks', methods=['GET'])
 def read():
+    if session.get("user_id", "") == "":
+        return redirect("/login")
+    
     user_id = session['user_id'][0][0]
     rows = read_tasks(user_id=user_id)
     return rows
 
 @app.route('/add_task', methods=['POST'])
 def add():
+    if session.get("user_id", "") == "":
+        return redirect("/login")
+    
     user_id = session['user_id'][0][0]
     data = request.get_json()
     add_task(user_id, data)
@@ -107,21 +140,31 @@ def add():
 
 @app.route('/delete_task', methods=['POST'])
 def delete():
+    if session.get("user_id", "") == "":
+        return redirect("/login")
+    
     data = request.get_json()
     delete_task(data)
     return "Delete task succeeded"
 
 @app.route('/update_status', methods=['POST'])
 def status_update():
+    if session.get("user_id", "") == "":
+        return redirect("/login")
+    
     data = request.get_json()
     update_status(data)
     return "Update status succeeded"
 
 @app.route('/update_task', methods=['POST'])
 def update():
+    if session.get("user_id", "") == "":
+        return redirect("/login")
+    
     data = request.get_json()
     update_task(data)
     return "Update task succeeded"
+    
     
 if __name__ == '__main__':
     app.run(debug=True)

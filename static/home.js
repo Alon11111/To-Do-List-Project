@@ -37,7 +37,6 @@ const Home = () => {
     };
     const addRes = await axios.post("/add_task", addTask);
     window.location.href = "/";
-    // alert("Add succesful");
     console.log("ADD RESPONSE:\t", addRes);
   };
 
@@ -60,6 +59,7 @@ const Home = () => {
         <div className="save-update-btn">
           <img
             src="static/images/save.png"
+            title="Click here to Save task changed values"
             className="save-img"
             onClick={() => submitUpdate(row)}
           />
@@ -77,6 +77,7 @@ const Home = () => {
           <img
             src="static/images/edit.png"
             className="edit-img"
+            title="Click here to Edit task values"
             onClick={() => setEditRowId(row.task_id)}
           />
         </div>
@@ -204,7 +205,7 @@ const Home = () => {
               </div>
               <textarea
                 name="description"
-                maxlength="75"
+                maxLength="75"
                 placeholder="Add new task's description here.."
                 className="add-description"
                 ref={addDescriptionRef}
@@ -222,9 +223,6 @@ const Home = () => {
             </form>
           </div>
         </div>
-        {/* <div className="title" id="tasks">
-          <h1 className="Title">{name}'s Tasks</h1>
-        </div> */}
         <div className="tasks-container">
           <div className="titles">
             <h2 className="status-title">Status</h2>
@@ -249,6 +247,7 @@ const Home = () => {
                       <img
                         src="static/images/done.png"
                         className="done-img"
+                        title="Click here to Finish task"
                         onClick={() => doneBtnClickHandler(row)}
                       />
                     </div>
@@ -269,6 +268,11 @@ const Home = () => {
                         className={
                           row.status === "Finished" ? "undone-img" : "retry-img"
                         }
+                        title={
+                          row.status === "Finished"
+                            ? "Click here to Undo finish task"
+                            : "Click here to Retry doing task in time (update to today's date automatically)"
+                        }
                         onClick={() => unDoneBtnClickHandler(row)}
                       />
                     </div>
@@ -285,6 +289,7 @@ const Home = () => {
                     <img
                       src="static/images/delete.png"
                       className="delete-img"
+                      title="Click here to Delete task"
                       onClick={() => deleteBtnClickHandler(row)}
                     />
                   </div>

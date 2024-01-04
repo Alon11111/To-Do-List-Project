@@ -137,3 +137,19 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .page-container {
+    width: 100%;
+  }
+  .content-container {
+    width: 95%;
+  }
+  .field-container {
+    padding-bottom: 5px;
+    padding-top: 3px;
+  }
+  .register-container {
+    font-size: large;
+  }
+}
